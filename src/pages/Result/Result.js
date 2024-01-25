@@ -83,9 +83,15 @@ const Result = () => {
         <div className="bz-result-card__content">
           <div className="result__card">
             <div className="result__card--content">
-              <h1 className="result__card--score">{answer.scoredPoints}</h1>
-              <p>Better Biz Score</p>
-              <h1 className="result__card--heading">Things You Can Improve</h1>
+              <h6 className="result__card--score">
+                Better Biz Score: {answer.scoredPoints}
+              </h6>
+              <p
+                className="result__card--heading"
+                style={{ marginTop: "30px" }}
+              >
+                Things You Can Improve
+              </p>{" "}
             </div>
 
             <div style={{ padding: "2rem" }}>
