@@ -7,7 +7,6 @@ const StepGeneralQuestionSlide = ({ handleNext }) => {
     <section className={styles.modal}>
       <div className={styles.modalContent}>
         <h1>BetterBiz: Business Diagnostic Health Score</h1>
-        <p>Building healthier businesses</p>
         {/* <span>17 Questions</span> */}
       </div>
       

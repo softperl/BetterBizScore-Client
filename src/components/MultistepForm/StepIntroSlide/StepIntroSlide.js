@@ -10,7 +10,6 @@ const StepIntroSlide = ({ handleNext }) => {
       <div className={styles.modalContent}>
         <img src={logo} alt='BetterBiz Business Score' className={styles.modalLogo} />
         <h1>BetterBiz Business Score</h1>
-        <p>Creating healthier businesses for the Canadian economy</p>
       </div>
       <button className={styles.modalButton} onClick={handleNext}>START &nbsp; <ArrowRight /></button>
     </section>
