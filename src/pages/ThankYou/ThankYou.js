@@ -10,7 +10,7 @@ const ThankYou = () => {
 
   const handleCheckout = () => {
     // navigate('/checkout')
-    window.location.href = 'http://localhost:3001/result';
+    window.location.href = 'http://localhost:3000/result';
   }
   return (
     <div className='app'>

@@ -94,11 +94,11 @@ const Result = () => {
                   const percentage = ans?.value?.percentage;
                   let badgeColor = '';
 
-                  if (percentage > 90) {
+                  if (percentage > 80) {
                     badgeColor = 'gold';
-                  } else if (percentage > 80) {
-                    badgeColor = 'silver';
                   } else if (percentage > 70) {
+                    badgeColor = 'silver';
+                  } else if (percentage > 60) {
                     badgeColor = 'brown';
                   } else {
                     badgeColor = 'gray';
