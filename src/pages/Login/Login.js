@@ -14,7 +14,7 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm({ defaultValues: { email: 'admin@betterbiz.com', password: 'password' } })
+  } = useForm({ defaultValues: { email: '', password: '' } })
 
   const { error, success } = useSelector(authSelector)
   const dispatch = useDispatch()
