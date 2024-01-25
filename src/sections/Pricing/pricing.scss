@@ -1,0 +1,132 @@
+.plans {
+   padding: 10rem 0;
+}
+
+.plan {
+   grid-column: span 12;
+   display: flex;
+   /* gap: 3rem; */
+   flex-wrap: wrap;
+   justify-content: center;
+
+   @media only screen and (max-width: 70em) {
+      gap: 3rem;
+   }
+
+   &__card {
+      flex: 0 0 32.5%;
+      display: flex;
+      flex-direction: column;
+      border-radius: 3px;
+      border: 1px solid var(--color-primary);
+      overflow: hidden;
+      box-shadow: 3px 5px 3rem rgba(#006EEE, 0.08);
+      transition: border 0.3s;
+
+      position: relative;
+
+      @media only screen and (max-width: 70em) {
+         flex: 0 0 40%;
+      }
+
+      @media only screen and (max-width: 64em) {
+         flex: 0 0 45%;
+      }
+
+      @media only screen and (max-width: 52.5em) {
+         flex: 0 0 60%;
+      }
+
+      @media only screen and (max-width: 40em) {
+         flex: 1 0 100%;
+      }
+
+      &:hover {
+         cursor: pointer;
+         background-color: var(--color-primary);
+      }
+
+      &--active::after {
+         display: inline;
+         content: 'Active';
+         position: absolute;
+         top: 2rem;
+         right: 2rem;
+         padding: 0.5rem 1rem;
+         color: white;
+         background-color: var(--color-primary);
+      }
+   }
+
+   &__card:hover *:not(button) {
+      color: white;
+   }
+
+   &__price-box {
+      display: grid;
+      grid-template-rows: repeat(3, minmax(40px, max-content));
+      grid-gap: 1rem;
+      /* border-bottom: 1px solid #e8e8e8; */
+      padding: 2rem 1rem 0;
+      padding-left: 2.5rem;
+
+      &>h3 {
+         font-size: 2.4rem;
+         font-weight: 700;
+         letter-spacing: -1px;
+      }
+
+      &>hr {
+         width: 95%;
+         background-color: #ebe8e8;
+      }
+   }
+
+   &__price {
+      font-family: "Outfit", monospace;
+      font-size: 5rem;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+
+      & span {
+         font-size: 2rem;
+         font-weight: 400;
+      }
+   }
+
+   &__description {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 1rem;
+   }
+
+   &__features {
+      flex: 1;
+      list-style: none;
+      padding: 2rem 1rem;
+      padding-left: 2.5rem;
+   }
+
+   &__feature {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      color: #555;
+      padding: 1rem 0;
+      font-size: 1.8rem;
+   }
+
+   &__cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 2rem;
+      text-align: right;
+      font-size: 2rem;
+      font-weight: 600;
+      background-color: white;
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary);
+   }
+}

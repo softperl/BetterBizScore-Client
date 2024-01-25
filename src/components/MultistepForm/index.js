@@ -1,0 +1,8 @@
+export { default as StepIntroSlide } from './StepIntroSlide/StepIntroSlide'
+export { default as StepGeneralQuestionSlide } from './StepGeneralQuestionSlide/StepGeneralQuestionSlide'
+export { default as StepFormName } from './StepFormName/StepFormName'
+export { default as StepBusinessName } from './StepBusinessName/StepBusinessName'
+export { default as StepBusinessIndustry } from './StepBusinessIndustry/StepBusinessIndustry'
+export { default as StepBusinessEmail } from './StepBusinessEmail/StepBusinessEmail'
+export { default as StepPhoneNumber } from './StepPhoneNumber/StepPhoneNumber'
+export { default as StepAddress } from './StepAddress/StepAddress'

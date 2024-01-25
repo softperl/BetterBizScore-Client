@@ -1,0 +1,97 @@
+.mission {
+   &__container {
+      grid-column: span 12;
+
+      & figure {
+         display: flex;
+         justify-content: center;
+         border-radius: 1rem;
+
+         @media only screen and (max-width: 55em) {
+            padding: 0;
+         }
+
+         & img {
+            border-radius: 5px;
+            height: 50rem;
+            width: 100%;
+            /* box-shadow: 1rem 2rem 5rem rgba(#aaa, 0.6); */
+            object-fit: contain;
+
+            @media only screen and (max-width: 35em) {
+               height: 25rem;
+            }
+         }
+      }
+   }
+
+   &__feature {
+      margin-bottom: 5rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(35rem, 1fr));
+      align-items: center;
+      grid-column-gap: 5rem;
+
+      /* @media only screen and (max-width: 62.5em) {
+         grid-column-gap: 0;
+      } */
+
+      @media only screen and (max-width: 55em) {
+         margin-bottom: 5rem;
+         grid-template-columns: minmax(min-content, 48rem);
+         grid-row-gap: 3rem;
+         justify-content: center;
+      }
+
+      &--1 figure {
+         padding-right: 3rem;
+
+         @media only screen and (max-width: 55em) {
+            padding-right: 0;
+
+         }
+      }
+
+      &--2 figure {
+         padding-left: 3rem;
+
+         @media only screen and (max-width: 55em) {
+            padding-left: 0;
+            grid-row: 1/span 1;
+         }
+      }
+
+      &--content {
+         position: relative;
+         padding-left: 0;
+         align-self: center;
+
+         @media only screen and (max-width: 55em) {
+            padding: 0;
+         }
+
+         &>h3 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            letter-spacing: -1.2px;
+
+            @media only screen and (max-width: 64em) {
+               font-size: 2.5rem;
+            }
+         }
+
+         &>p {
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--color-gray);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+
+            @media only screen and (max-width: 26em) {
+               font-size: 1.8rem;
+            }
+         }
+      }
+   }
+}

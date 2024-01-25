@@ -1,0 +1,160 @@
+[
+   {
+      "category": "Finance",
+      "questions": [
+         {
+            "id": 1,
+            "question": "Expenses",
+            "options": [
+               {
+                  "option": "* < $50,000",
+                  "points": 10
+               },
+               {
+                  "option": "* $50,000 - $100,000",
+                  "points": 20
+               },
+               {
+                  "option": "* $100,000 - $500,000",
+                  "points": 30
+               },
+               {
+                  "option": "* $500,000 - $1 million",
+                  "points": 40
+               },
+               {
+                  "option": "* $1 million",
+                  "points": 50
+               }
+            ]
+         },
+         {
+            "id": 2,
+            "question": "Revenue",
+            "options": [
+               {
+                  "option": "* < $100,000",
+                  "points": 10
+               },
+               {
+                  "option": "* $100,000 - $500,000",
+                  "points": 20
+               },
+               {
+                  "option": "* $500,000 - $1 million",
+                  "points": 30
+               },
+               {
+                  "option": "* $1 million - $5 million",
+                  "points": 40
+               },
+               {
+                  "option": "* $5 million",
+                  "points": 50
+               }
+            ]
+         },
+         {
+            "id": 3,
+            "question": "Working Capital",
+            "options": [
+               {
+                  "option": "* Negative working capital",
+                  "points": 0
+               },
+               {
+                  "option": "* $50,000",
+                  "points": 10
+               },
+               {
+                  "option": "* $50,000 - $100,000",
+                  "points": 20
+               },
+               {
+                  "option": "* $100,000 - $500,000",
+                  "points": 30
+               },
+               {
+                  "option": "* $500,000 - $1 million",
+                  "points": 40
+               },
+               {
+                  "option": "* $1 million or more",
+                  "points": 50
+               }
+            ]
+         }
+      ]
+   },
+   {
+      "category": "Marketing",
+      "questions": [
+         {
+            "id": 1,
+            "question": "Conversion Rate",
+            "options": [
+               {
+                  "option": "* Less than 2%",
+                  "points": 0
+               },
+               {
+                  "option": "* 2-5%",
+                  "points": 10
+               },
+               {
+                  "option": "* 5-10%",
+                  "points": 20
+               },
+               {
+                  "option": "* 10-15%",
+                  "points": 30
+               },
+               {
+                  "option": "* More than 15%",
+                  "points": 40
+               }
+            ]
+         },
+         {
+            "id": 2,
+            "question": "Social Media Presence",
+            "options": [
+               {
+                  "option": "* Active and successful social media presence",
+                  "points": 30
+               },
+               {
+                  "option": "* Little or no social media presence",
+                  "points": 10
+               }
+            ]
+         },
+         {
+            "id": 3,
+            "question": "Social Media Engagement",
+            "options": [
+               {
+                  "option": "* Less than 1%",
+                  "points": 0
+               },
+               {
+                  "option": "* 1-2%",
+                  "points": 10
+               },
+               {
+                  "option": "* 2-3%",
+                  "points": 20
+               },
+               {
+                  "option": "* 3-4%",
+                  "points": 30
+               },
+               {
+                  "option": "* More than 4%",
+                  "points": 40
+               }
+            ]
+         }
+      ]
+   }
+]

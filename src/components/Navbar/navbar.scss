@@ -1,0 +1,212 @@
+.nav {
+   grid-column: span 12;
+   height: 10rem;
+   display: flex;
+   gap: 2rem;
+   align-items: center;
+   justify-content: space-between;
+   /* TODO: remove these lines */
+   font-weight: 600;
+
+   @media only screen and (max-width: 40em) {
+      height: 8rem;
+   }
+
+   &__social {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      @media only screen and (max-width: 40em) {
+         display: none;
+      }
+   }
+
+   &__logo {
+      font-size: 3rem;
+      font-weight: 600;
+
+      @media only screen and (max-width: 40em) {
+         font-size: 2.5rem;
+      }
+   }
+
+   &__list {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+
+      @media only screen and (max-width: 64em) {
+         flex-direction: column;
+         align-items: start;
+         position: fixed;
+         inset: 0 0 0 45%;
+         height: 100vh;
+         z-index: 100;
+         padding: 8rem 3rem 4rem;
+         background-color: hsla(0, 0%, 100%, 0.8);
+
+         backdrop-filter: blur(10px);
+
+         transform: translateX(100%);
+         transition: transform 0.5s ease-out;
+      }
+
+      &--visible {
+         transform: translateX(0);
+      }
+   }
+
+   &__item {
+      position: relative;
+      cursor: pointer;
+
+      @media only screen and (max-width: 52.5em) {
+         padding: 1rem;
+      }
+
+      &::after {
+         display: block;
+         content: '';
+         position: relative;
+         height: 2px;
+         width: 0;
+         bottom: 0;
+         border-radius: 2rem;
+         background: var(--color-primary);
+         transition: width 0.2s;
+
+         @media only screen and (max-width: 52.5em) {
+            display: none;
+         }
+      }
+
+      &:hover {
+         color: var(--color-primary);
+      }
+
+      &:hover::after {
+         width: 100%;
+      }
+   }
+
+   &__sticky {
+      z-index: 8010;
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: 8rem;
+      padding: 0 5rem;
+      // color: var(--clr-lightBlue-darkWhite);
+      // background-color: var(--clr-lightWhite-darkBlue);
+
+      backdrop-filter: blur(4rem);
+
+      box-shadow: 1rem 2rem 3rem rgba(black, 0.08);
+
+      @media only screen and (max-width: 31.25em) {
+         padding: 0 3rem;
+      }
+   }
+}
+
+.burger {
+   z-index: 200;
+   display: none;
+   align-items: center;
+   justify-content: center;
+   width: 4rem;
+   height: 3.3rem;
+   position: relative;
+   cursor: pointer;
+   transform: rotate(0deg);
+   -webkit-transform: rotate(0deg);
+   -o-transform: rotate(0deg);
+   -moz-transform: rotate(0deg);
+   transition: .5s ease-in-out;
+   -webkit-transition: .5s ease-in-out;
+   -o-transition: .5s ease-in-out;
+   -moz-transition: .5s ease-in-out;
+
+   @media only screen and (max-width: 64em) {
+      display: flex;
+   }
+
+   @media only screen and (max-width: 40em) {
+      width: 3.3rem;
+   }
+
+   & span {
+      display: block;
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: black;
+      border-radius: 10px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      transition: .25s ease-in-out;
+      -webkit-transition: .25s ease-in-out;
+      -o-transition: .25s ease-in-out;
+      -moz-transition: .25s ease-in-out;
+
+      @media only screen and (max-width: 40em) {
+         height: 3px;
+      }
+
+      &:nth-child(1) {
+         top: 0px;
+         width: 40%;
+      }
+
+      &:nth-child(2) {
+         top: 1.2rem;
+
+         @media only screen and (max-width: 40em) {
+            top: 1rem;
+         }
+      }
+
+      &:nth-child(3) {
+         top: 2.4rem;
+         width: 60%;
+
+         @media only screen and (max-width: 40em) {
+            top: 2rem;
+         }
+      }
+   }
+}
+
+.burger.open {
+   z-index: 500;
+   transform: translate(-1px, -1px);
+
+   & span:nth-child(1) {
+      top: 1.8rem;
+      width: 80%;
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+      -o-transform: rotate(135deg);
+      -moz-transform: rotate(135deg);
+   }
+
+   & span:nth-child(2) {
+      opacity: 0;
+      width: 80%;
+      left: -6rem;
+   }
+
+   & span:nth-child(3) {
+      top: 1.8rem;
+      width: 80%;
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+      -o-transform: rotate(-135deg);
+      -moz-transform: rotate(-135deg);
+   }
+}

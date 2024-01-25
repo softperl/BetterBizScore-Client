@@ -1,0 +1,9 @@
+.modal {
+   display: grid;
+   column-gap: 1px;
+   grid-template-columns: repeat(2, 1fr);
+   border-radius: 5px;
+   overflow: hidden;
+   background-color: white;
+   box-shadow: var(--modal-shadow);
+}

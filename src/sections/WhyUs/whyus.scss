@@ -1,0 +1,94 @@
+/* UTILS: READY FOR PRODUCTION */
+.features {
+   padding: 10rem 0;
+}
+
+.feature {
+   /* Remove for Combined Grid */
+   grid-column: span 12;
+   display: flex;
+   gap: 4rem;
+   flex-wrap: wrap;
+   justify-content: center;
+
+   /* @media only screen and (max-width: 52.5em) {
+      flex-wrap: wrap;
+   } */
+
+   &__box {
+      flex: 0 0 30%;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 4rem 5rem;
+      border: 1px solid var(--color-primary);
+      cursor: pointer;
+
+      position: relative;
+
+      @media only screen and (max-width: 64em) {
+         flex: 0 0 45%;
+      }
+
+      @media only screen and (max-width: 40em) {
+         flex: 0 0 70%;
+      }
+
+      @media only screen and (max-width: 35em) {
+         flex: 1 0 100%;
+      }
+
+      &::before {
+         display: block;
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 0;
+         height: 100%;
+         z-index: -1;
+         background-color: var(--color-primary);
+         transition: width 0.5s cubic-bezier(0.1, 0.3, 0.6, 1);
+      }
+
+      &:hover::before {
+         width: 100%;
+      }
+   }
+
+   &__box:hover &__icon :is(path,
+      polyline,
+      polygon,
+      circle,
+      line) {
+      stroke: white;
+   }
+
+   &__box:hover &__title,
+   &__box:hover &__description {
+      color: white;
+   }
+
+   &__icon {
+      margin-bottom: 2.5rem;
+      /* background-image: linear-gradient(to right, #0f172a, #0f172a);
+      background-clip: text;
+      -webkit-background-clip: text; */
+   }
+
+   &__title {
+      font-size: 2rem;
+      line-height: 1.4;
+      letter-spacing: -0.5px;
+      margin-bottom: 2rem;
+      transition: color 0.5s;
+   }
+
+   &__description {
+      font-size: 1.8rem;
+      line-height: 1.5;
+      color: var(--color-gray);
+      font-weight: 500;
+      transition: color 0.5s;
+   }
+}

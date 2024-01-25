@@ -1,0 +1,32 @@
+.verify {
+   display: grid;
+   grid-gap: 1.5rem;
+   justify-items: center;
+   padding: 4rem;
+   border-radius: 5px;
+   overflow: hidden;
+   background-color: #c1d4fa8a;
+
+   &>h1 {
+      font-size: 3.2rem;
+      font-weight: 600;
+      color: var(--color-heading);
+   }
+
+   &>p {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--color-text);
+   }
+
+   &>button {
+      font-weight: 600;
+      color: white;
+      border-radius: 5px;
+   }
+}
+
+.verifyIcon {
+   width: 12rem;
+   height: 12rem;
+}

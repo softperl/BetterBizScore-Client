@@ -1,0 +1,30 @@
+.modal {
+   display: grid;
+   column-gap: 1px;
+   grid-template-columns: repeat(2, 1fr);
+   border-radius: 5px;
+   overflow: hidden;
+   background-color: white;
+   background-color: #c1d4fa8a;
+}
+
+.modalContent {
+   grid-column: 1/-1;
+   padding: 5rem 4rem;
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem;
+   align-items: center;
+
+   &>h1 {
+      font-size: 3.2rem;
+      font-weight: 500;
+      color: var(--color-heading);
+   }
+
+   &>span {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--color-text);
+   }
+}

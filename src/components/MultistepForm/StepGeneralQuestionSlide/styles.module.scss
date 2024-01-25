@@ -1,0 +1,86 @@
+.modal {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   border-radius: 5px;
+   overflow: hidden;
+   background-color: #c1d4fa8a;
+}
+
+.modalContent {
+   grid-column: 1/-1;
+   padding: 5.5rem 4rem;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem;
+   align-items: center;
+
+   @media only screen and (max-width: 31.25em) {
+      padding: 2.5rem;
+   }
+
+   &>h1 {
+      font-size: 3.2rem;
+      font-weight: 500;
+      color: var(--color-heading);
+
+      @media only screen and (max-width: 31.25em) {
+         font-size: 2.5rem;
+         font-weight: 600;
+      }
+   }
+
+   &>p {
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text);
+
+      @media only screen and (max-width: 31.25em) {
+         font-size: 1.6rem;
+         font-weight: 500;
+      }
+   }
+
+   &>span {
+      font-size: 1.5rem;
+      color: #1e3e66;
+      font-weight: 500;
+   }
+}
+
+.modalButton {
+   grid-column: 1/-1;
+   font-size: 2rem;
+   padding: 1.6rem;
+   color: white;
+   background: var(--color-primary);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   &:hover {
+      background: #004BA2;
+   }
+
+   &:hover svg {
+      animation: animateNext 1s 1;
+   }
+}
+
+@keyframes animateNext {
+   25% {
+      transform: translateX(1rem);
+   }
+
+   50% {
+      transform: translateX(0);
+   }
+
+   75% {
+      transform: translateX(0.8rem);
+   }
+
+   100% {
+      transform: translateX(0);
+   }
+}

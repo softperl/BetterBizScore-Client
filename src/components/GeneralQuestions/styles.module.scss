@@ -1,0 +1,70 @@
+.modal {
+   display: grid;
+   column-gap: 1px;
+   grid-template-columns: repeat(2, 1fr);
+   border-radius: 5px;
+   overflow: hidden;
+   background-color: white;
+   box-shadow: var(--modal-shadow);
+}
+
+.modalContent {
+   grid-column: 1/-1;
+   padding: 4rem;
+   padding-bottom: 5rem;
+   display: grid;
+   gap: 1.5rem;
+   grid-template-columns: repeat(2, 1fr);
+
+   @media only screen and (max-width: 40em) {
+      padding: 3rem;
+   }
+
+   &>h1 {
+      grid-column: 1/-1;
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--color-heading);
+      margin-bottom: 1rem;
+
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      @media only screen and (max-width: 40em) {
+         font-size: 2.5rem;
+      }
+   }
+}
+
+.formGroup {
+   font-size: 1.6rem;
+   gap: 1.2rem;
+   position: relative;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   padding: 1.4rem;
+   border: 1px solid #72757b;
+   border-radius: 3px;
+   color: #64728c;
+   font-size: 1.5rem;
+
+   @media only screen and (max-width: 40em) {
+      grid-column: 1/-1;
+      margin-bottom: 1rem;
+   }
+}
+
+.tooltip {
+   z-index: 5;
+   font-size: 1.5rem;
+   width: 40rem;
+   color: var(--color-gray);
+   background-color: white;
+   box-shadow: 0 5px 40px #ddd;
+
+   @media only screen and (max-width: 48em) {
+      width: 20rem;
+   }
+}

@@ -1,0 +1,124 @@
+.modal {
+   display: grid;
+   column-gap: 1px;
+   grid-template-columns: repeat(2, 1fr);
+   border-radius: 5px;
+   background-color: white;
+   box-shadow: var(--modal-shadow);
+}
+
+.modalContent {
+   grid-column: 1/-1;
+   padding: 4rem;
+   padding-top: 3rem;
+   display: flex;
+   gap: 1.5rem;
+   flex-direction: column;
+
+   @media only screen and (max-width: 35em) {
+      padding: 3rem;
+   }
+
+   &>h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--color-heading);
+
+      @media only screen and (max-width: 35em) {
+         font-size: 2.5rem;
+      }
+   }
+}
+
+/* CUSTOM SELECT DROPDOWN WITH SEARCHBOX */
+.selectWrapper {
+   width: 100%;
+   position: relative;
+
+   @media only screen and (max-width: 35em) {
+      margin-bottom: 1rem;
+   }
+}
+
+.selectButton {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 1.25rem 1.5rem;
+   border-radius: 0.5rem;
+   cursor: pointer;
+   border: 1px solid #bdbdbd;
+
+   @media only screen and (max-width: 35em) {
+      padding: 1rem 1.2rem;
+   }
+
+   &>span {
+      font-size: 1.6rem;
+      font-weight: 600;
+   }
+
+   & svg {
+      transition: transform 0.3s ease;
+   }
+}
+
+.selectContent {
+   display: none;
+   position: absolute;
+   top: 100%;
+   width: 100%;
+   z-index: 20;
+   background-color: white;
+   margin-top: 1.5rem;
+   border-radius: 3px;
+}
+
+.selectSearch>input {
+   font-size: 1.6rem;
+   font-weight: 600;
+   padding: 1.6rem 1.5rem;
+
+   @media only screen and (max-width: 35em) {
+      padding: 1.4rem 1.2rem;
+   }
+}
+
+.selectList {
+   max-height: 20rem;
+   overflow-y: auto;
+   border: 1px solid #bdbdbd;
+
+   & li {
+      padding: 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+
+      @media only screen and (max-width: 35em) {
+         padding: 1.4rem;
+      }
+
+      &:hover {
+         background-color: #D7EBFF;
+      }
+   }
+
+   & li:not(:last-child) {
+      border-bottom: 1px solid #f0f0f0;
+   }
+}
+
+.selectWrapper.active .selectContent {
+   display: block;
+}
+
+.selectWrapper.active .selectButton svg {
+   transform: rotate(-180deg);
+}
+
+.formError {
+   font-size: 1.3rem;
+   font-weight: 600;
+   color: #ff1241;
+   translate: 0 1rem;
+}
