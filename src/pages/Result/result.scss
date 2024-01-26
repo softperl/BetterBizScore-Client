@@ -26,15 +26,18 @@
 
 .bz-result-card {
    display: grid;
-   grid-template-columns: minmax(3rem, 1fr) minmax(min-content, 80rem) minmax(3rem, 1fr);
+   grid-template-columns: minmax(3rem, 1fr) minmax(min-content, 110rem) minmax(3rem, 1fr);
    align-content: center;
    grid-template-rows: min-content;
-   padding-bottom: 8rem;
-
-   @media only screen and (max-width: 31.25em) {
-      grid-template-columns: minmax(0, 1fr) minmax(min-content, 120rem) minmax(0, 1fr);
+   padding-bottom: 4rem;
+ }
+ 
+ @media only screen and (max-width: 48em) {
+   /* Change the max-width value to match your desired tablet breakpoint */
+   .bz-result-card {
+     display: block; /* Change to block or other desired display property for mobile view */
    }
-}
+ }
 
 .bz-result-card__content {
    grid-column: 2/-2;
@@ -73,7 +76,7 @@
 
    &--score {
       font-family: 'Outfit', monospace;
-      font-size: 4rem;
+      font-size: 3rem;
       font-weight: 600;
       color: #091d35;
    }

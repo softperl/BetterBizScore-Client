@@ -4,8 +4,29 @@ import { Link } from "react-router-dom";
 import "./result.scss";
 import { Badge } from "../../assets/Badge";
 import logo from "../../assets/logo.png";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  Typography,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Button,
+} from "@mui/material";
+import SuggestionModal from "./suggestionModal";
 
-const Result = () => {
+const Result = ({ isOpen, handleClose, selectedRow }) => {
+  const [suggestionModalOpen, setSuggestionModalOpen] = useState(false);
+  const [selectedSuggestion, setSelectedSuggestion] = useState("");
+
+  const handleOpenSuggestionModal = (suggestion) => {
+    setSelectedSuggestion(suggestion);
+    setSuggestionModalOpen(true);
+  };
   const user = JSON.parse(localStorage.getItem("__user_bzc_client"));
   const token = localStorage.getItem("__token_bzc_client");
   const [answer, setAnswer] = useState({});
@@ -94,81 +115,144 @@ const Result = () => {
               <h6 className="result__card--score">
                 Better Biz Score: {answer.scoredPoints}
               </h6>
-              <p
-                className="result__card--heading"
-                style={{ marginTop: "30px" }}
+              <Button
+                variant="contained"
+                style={{
+                  background: "#3498db",
+                  color: "white",
+                  borderRadius: "25px",
+                  pointerEvents: "none",
+                  fontSize: "14px",
+                  marginTop: "20px",
+                }}
+                disabled
               >
                 Things You Can Improve
-              </p>{" "}
+              </Button>
             </div>
 
             <div style={{ padding: "2rem" }}>
-              <table>
-                <tr>
-                  <th>Badge</th>
-                  <th>Category</th>
-                  <th>Score</th>
-                  <th>Suggestions</th>
-                </tr>
-                {(submissions || []).map((ans, i) => {
-                  const percentage = ans?.value?.percentage;
-                  let badgeColor = "";
+              <TableContainer>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell
+                        style={{ textAlign: "center", fontSize: "16px" }}
+                      >
+                        Badge
+                      </TableCell>
+                      <TableCell
+                        style={{ textAlign: "center", fontSize: "16px" }}
+                      >
+                        Category
+                      </TableCell>
+                      <TableCell
+                        style={{ textAlign: "center", fontSize: "16px" }}
+                      >
+                        Score
+                      </TableCell>
+                      {/* <TableCell style={{ fontSize: "16px" }}>Percentage</TableCell> */}
+                      <TableCell
+                        style={{ textAlign: "center", fontSize: "16px" }}
+                      >
+                        Suggestions
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {(submissions || []).map((ans, i) => {
+                      const percentage = ans?.value?.percentage;
+                      let badgeColor = "";
 
-                  if (percentage > 80) {
-                    badgeColor = "gold";
-                  } else if (percentage > 70) {
-                    badgeColor = "silver";
-                  } else if (percentage > 60) {
-                    badgeColor = "brown";
-                  } else {
-                    badgeColor = "gray";
-                  }
-                  console.log({ badgeColor });
+                      if (percentage > 80) {
+                        badgeColor = "gold";
+                      } else if (percentage > 70) {
+                        badgeColor = "silver";
+                      } else if (percentage > 60) {
+                        badgeColor = "brown";
+                      } else {
+                        badgeColor = "gray";
+                      }
 
-                  return (
-                    <tr key={i}>
-                      <td>
-                        <Badge color={badgeColor} />
-                      </td>
-                      <td>
-                        <button
-                          variant="contained"
-                          style={{ background: "#3498db", color: "white" }}
-                          disabled
-                        >
-                          {ans?.name}
-                        </button>
-                      </td>{" "}
-                      <td>{ans?.value?.points}</td>
-                      <td>
-                        {ans?.value?.suggestion ? (
-                          <span style={{ color: "green" }}>
-                            {ans?.value?.suggestion}
-                          </span>
-                        ) : (
-                          <span style={{ color: "red" }}>
-                            No suggestion found
-                          </span>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </table>
+                      return (
+                        <TableRow key={i}>
+                          <TableCell style={{ textAlign: "center" }}>
+                            <Badge color={badgeColor} />
+                          </TableCell>
+                          <TableCell style={{ textAlign: "center" }}>
+                            <Button
+                              variant="contained"
+                              style={{
+                                background: "#3498db",
+                                color: "white",
+                                fontSize: "14px",
+                              }}
+                              disabled
+                            >
+                              {ans.name}
+                            </Button>
+                          </TableCell>
+                          <TableCell
+                            style={{ textAlign: "center", fontSize: "18px" }}
+                          >
+                            {ans?.value?.points}
+                          </TableCell>
+                          {/* <TableCell>{ans?.value?.percentage} %</TableCell> */}
+                          <TableCell style={{ textAlign: "center" }}>
+                            <Button
+                              variant="contained"
+                              style={{
+                                background: "#3498db",
+                                color: "white",
+                                fontSize: "14px",
+                              }}
+                              onClick={() =>
+                                handleOpenSuggestionModal(
+                                  ans?.value?.suggestion
+                                )
+                              }
+                            >
+                              View
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </div>
           </div>
         </div>
       </section>
+      <SuggestionModal
+        isOpen={suggestionModalOpen}
+        handleClose={() => setSuggestionModalOpen(false)}
+        suggestion={selectedSuggestion}
+      />
       <center>
         <div
           style={{
             display: "flex",
             justifyContent: "center",
-            marginBottom: "2rem",
+            marginBottom: "40px",
           }}
         >
           <Link to="http://localhost:3000" target="_blank">
-            <button style={{ color: "white" }}>Visit All Results</button>
+            <button
+              style={{
+                color: "white",
+                background: "#3498db",
+                borderRadius: "25px",
+                width: "200px", // Adjust the width value as needed
+                display: "flex",
+                alignItems: "center", // Center the text vertically
+                justifyContent: "center", // Center the text horizontally
+                fontSize: "22px",
+              }}
+            >
+              Visit All Results
+            </button>
           </Link>
         </div>
       </center>
