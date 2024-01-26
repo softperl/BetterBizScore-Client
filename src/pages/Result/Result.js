@@ -37,20 +37,29 @@ const Result = () => {
             Authorization: `Bearer ${token}`,
           },
         };
-
+    
         const response = await axios.get(
           `http://localhost:8000/api/answers/${userId}?last=${true}`,
           config
         );
+    
         if (response?.data?.status === "success" && response.data?.data) {
           const data = response.data.data;
-          setAnswer(data?.answers[0]);
+          
+          // Check if there are answers in the array
+          if (data?.answers && data.answers.length > 0) {
+            // Set the answer to the last element in the array
+            setAnswer(data.answers[data.answers.length - 1]);
+          }
+    
           setSubmissions(data?.suggestions);
         }
       } catch (error) {
         console.log(error);
       }
     };
+    
+
     if (!token && !user?._id) {
       window.location.href = "http://localhost:3000/login";
     } else {
@@ -122,7 +131,15 @@ const Result = () => {
                       <td>
                         <Badge color={badgeColor} />
                       </td>
-                      <td>{ans?.name}</td>
+                      <td>
+                        <button
+                          variant="contained"
+                          style={{ background: "#3498db", color: "white" }}
+                          disabled
+                        >
+                          {ans?.name}
+                        </button>
+                      </td>{" "}
                       <td>{ans?.value?.points}</td>
                       <td>
                         {ans?.value?.suggestion ? (
