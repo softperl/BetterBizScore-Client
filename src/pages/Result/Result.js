@@ -60,7 +60,7 @@ const Result = ({ isOpen, handleClose, selectedRow }) => {
         };
 
         const response = await axios.get(
-          `http://api.betterbizscore.com/api/answers/${userId}?last=${true}`,
+          `http://localhost:8000/api/answers/${userId}?last=${true}`,
           config
         );
 
@@ -81,7 +81,7 @@ const Result = ({ isOpen, handleClose, selectedRow }) => {
     };
 
     if (!token && !user?._id) {
-      window.location.href = "http://betterbizscore.com/login";
+      window.location.href = "http://localhost:3000/login";
     } else {
       getAnswer();
     }
@@ -99,22 +99,30 @@ const Result = ({ isOpen, handleClose, selectedRow }) => {
             />
           </Link>
         </div>
-        <div className="bz-result__content">
+        {/* <div className="bz-result__content">
           <img
             src={getImageBasedOnScore(answer?.scoredPoints)}
             alt="BetterBiz Score Wheel"
             className="bz-result__cover"
             style={{ width: "100%" }} // Add this line
           />
-        </div>
+        </div> */}
       </section>
       <section className="bz-result-card">
         <div className="bz-result-card__content">
           <div className="result__card">
             <div className="result__card--content">
-              <h6 className="result__card--score">
-                BetterBiz Score: {answer.scoredPoints}
-              </h6>
+              <h1 className="" style={{ fontSize: "5em" }}>
+                {answer.scoredPoints}
+              </h1>
+              <div className="">
+                <img
+                  src={getImageBasedOnScore(answer?.scoredPoints)}
+                  alt="BetterBiz Score Wheel"
+                  className=""
+                  style={{ width: "100%" }} // Add this line
+                />
+              </div>
               <Button
                 variant="contained"
                 style={{
@@ -193,7 +201,7 @@ const Result = ({ isOpen, handleClose, selectedRow }) => {
                             </Button>
                           </TableCell>
                           <TableCell
-                            style={{ textAlign: "center", fontSize: "18px" }}
+                            style={{ textAlign: "center", fontSize: "20px" }}
                           >
                             {ans?.value?.points}
                           </TableCell>

@@ -30,7 +30,7 @@ const Pricing = function () {
         setLookUpKey(lookup_key);
         setLoading(true);
 
-        const response = await axios.post('http://api.betterbizscore.com/api/subscriptions/create-checkout-session', {
+        const response = await axios.post('http://localhost:8000/api/subscriptions/create-checkout-session', {
           lookup_key
         }, {
           headers: {
@@ -62,7 +62,7 @@ const Pricing = function () {
     const getCurrentSubscription = async () => {
       try {
         const industryId = localStorage.getItem('selected_industry_id');
-        const response = await axios.get(industryId ? `http://api.betterbizscore.com/api/users/subscription?industryId=${industryId}` : 'http://api.betterbizscore.com/api/users/subscription', {
+        const response = await axios.get(industryId ? `http://localhost:8000/api/users/subscription?industryId=${industryId}` : 'http://localhost:8000/api/users/subscription', {
           headers: {
             Authorization: `Bearer ${userToken}`,
             "Content-Type": 'application/json'
@@ -72,7 +72,7 @@ const Pricing = function () {
         if (response.data?.data?.alreadySubscribed && industryId) {
           console.log({alreadySubscribed: response.data?.data?.alreadySubscribed})
           localStorage.removeItem('selected_industry_id')
-          window.location.href = 'http://betterbizscore.com';
+          window.location.href = 'http://localhost:3000';
         } else {
           setSubscription(response.data?.data?.subscription)
         }
@@ -88,7 +88,7 @@ const Pricing = function () {
   React.useEffect(() => {
     const getPackages = async () => {
       try {
-        const response = await axios.get('http://api.betterbizscore.com/api/packages', {
+        const response = await axios.get('http://localhost:8000/api/packages', {
           headers: {
             "Content-Type": 'application/json'
           }

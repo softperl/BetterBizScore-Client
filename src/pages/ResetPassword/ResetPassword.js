@@ -8,7 +8,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { removeUser } from '../../redux/features/auth/reducer'
 
-const baseURL = 'http://api.betterbizscore.com'
+const baseURL = 'http://localhost:8000'
 
 const ResetPassword = () => {
   const {

@@ -19,7 +19,7 @@ const Contact = () => {
                "Content-Type": 'application/json'
             }
          }
-         const response = await axios.post(`http://api.betterbizscore.com/sendContactEmail`, data, config)
+         const response = await axios.post(`http://localhost:8000/sendContactEmail`, data, config)
 
          if (response.data?.status === 'success') {
             console.log(response);

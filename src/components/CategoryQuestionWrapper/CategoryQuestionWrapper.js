@@ -7,7 +7,7 @@ import CategoryQuestions from '../CategoryQuestions/CategoryQuestions';
 
 import { useIndustry } from '../../context/IndustryContext';
 
-const baseURL = 'http://api.betterbizscore.com';
+const baseURL = 'http://localhost:8000';
 
 const CategoryQuestionWrapper = () => {
   const navigate = useNavigate()

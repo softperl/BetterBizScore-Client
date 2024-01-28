@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const IndustryContext = createContext({});
 
-const baseURL = 'http://api.betterbizscore.com'
+const baseURL = 'http://localhost:8000'
 
 export function IndustryProvider({ children }) {
    const [industry, setIndustry] = useState({});

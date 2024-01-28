@@ -13,7 +13,7 @@ import MultistepForm from '../MultistepForm'
 import { useUserDetails } from '../../../context/UserDetailsContext'
 import { authSelector } from '../../../redux/features/auth/selectors'
 
-const baseURL = 'http://api.betterbizscore.com';
+const baseURL = 'http://localhost:8000';
 
 const StepAddress = ({ handlePrev, handleNext }) => {
    const { userToken } = useSelector(authSelector)

@@ -40,7 +40,7 @@ const Result = () => {
                     }
                 }
 
-                const response = await axios.get(`http://api.betterbizscore.com/api/answers/result/${userId}?answerId=${answerId}`, config)
+                const response = await axios.get(`http://localhost:8000/api/answers/result/${userId}?answerId=${answerId}`, config)
                 if (response?.data?.status === 'success' && response.data?.data) {
                     const data = response.data.data;
                     setAnswer(data)
@@ -51,7 +51,7 @@ const Result = () => {
             }
         }
         if (!token && !user?._id) {
-            window.location.href = 'http://betterbizscore.com/login';
+            window.location.href = 'http://localhost:3000/login';
         } else {
             getAnswer();
         }

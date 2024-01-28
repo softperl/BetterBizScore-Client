@@ -14,7 +14,7 @@ import { useAnswers } from '../../context/AnswersContext'
 import { authSelector } from '../../redux/features/auth/selectors'
 import { useIndustry } from '../../context/IndustryContext';
 
-const baseURL = 'http://api.betterbizscore.com';
+const baseURL = 'http://localhost:8000';
 
 const CategoryQuestions = ({ isLastQuestion, categoryDetails, goToNextCategory, goToCategorySlide }) => {
   const navigate = useNavigate()

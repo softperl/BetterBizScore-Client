@@ -39,7 +39,7 @@ const MultipageForm = () => {
             Authorization: `Bearer ${userToken}`
           }
         }
-        const response = await axios.get(`http://api.betterbizscore.com/api/users/profile`, config)
+        const response = await axios.get(`http://localhost:8000/api/users/profile`, config)
 
         if (response.data?.status === 'success') {
           setUserHasProfile(true)

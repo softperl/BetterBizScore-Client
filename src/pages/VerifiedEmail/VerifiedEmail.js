@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 import { Tick } from '../../assets/Tick'
 
-const baseURL = 'http://api.betterbizscore.com';
+const baseURL = 'http://localhost:8000';
 
 const VerifiedEmail = () => {
   const { token } = useParams()
