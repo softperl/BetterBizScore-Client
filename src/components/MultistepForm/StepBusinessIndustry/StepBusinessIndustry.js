@@ -12,7 +12,7 @@ import MultistepForm from '../MultistepForm'
 import { useUserDetails } from '../../../context/UserDetailsContext'
 import { useIndustry } from '../../../context/IndustryContext'
 
-const baseURL = 'http://localhost:8000';
+const baseURL = 'http://api.betterbizscore.com';
 
 const StepBusinessIndustry = ({ handlePrev, handleNext }) => {
   const {userData, setUserData} = useUserDetails()

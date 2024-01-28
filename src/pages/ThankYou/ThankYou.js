@@ -1,16 +1,17 @@
 import React from 'react'
 import styles from './styles.module.scss'
-
+import { useNavigate } from 'react-router-dom';
 import { Tick } from '../../assets/Tick'
 // import { useNavigate } from 'react-router-dom'
 
 const ThankYou = () => {
 
   // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleCheckout = () => {
-    // navigate('/checkout')
-    window.location.href = 'http://localhost:3000/result';
+    // Navigate to the /result page
+    navigate('/result');
   }
   return (
     <div className='app'>

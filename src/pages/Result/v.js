@@ -40,7 +40,7 @@ const Result = () => {
                     }
                 }
 
-                const response = await axios.get(`http://localhost:8000/api/answers/result/${userId}?answerId=${answerId}`, config)
+                const response = await axios.get(`http://api.betterbizscore.com/api/answers/result/${userId}?answerId=${answerId}`, config)
                 if (response?.data?.status === 'success' && response.data?.data) {
                     const data = response.data.data;
                     setAnswer(data)
@@ -51,7 +51,7 @@ const Result = () => {
             }
         }
         if (!token && !user?._id) {
-            window.location.href = 'http://localhost:3000/login';
+            window.location.href = 'http://betterbizscore.com/login';
         } else {
             getAnswer();
         }
@@ -61,14 +61,14 @@ const Result = () => {
         <Fragment>
             <section className='bz-result'>
                 <div className='bz-result__content' style={{ padding: '2rem 0' }}>
-                    <Link to='/'><img src={logo} className='result__card--logo' alt='Better Biz Score Logo' /></Link>
+                    <Link to='/'><img src={logo} className='result__card--logo' alt='BetterBiz Score Logo' /></Link>
                 </div>
                 <div className='bz-result__content'>
                     <img
                         width={'350px'}
                         height={'220px'}
                         src={getImageBasedOnScore(answer?.scoredPoints)}
-                        alt='Better Biz Score Wheel'
+                        alt='BetterBiz Score Wheel'
                         className='bz-result__cover'
                     />
                 </div>
@@ -78,7 +78,7 @@ const Result = () => {
                     <div className='result__card'>
                         <div className='result__card--content'>
                             <h1 className='result__card--score'>{answer.scoredPoints}</h1>
-                            <p>Better Biz Score</p>
+                            <p>BetterBiz Score</p>
                             <h1 className='result__card--heading'>Things You Can Improve</h1>
                         </div>
 

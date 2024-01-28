@@ -2,7 +2,7 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-const baseURL = 'http://127.0.0.1:8000'
+const baseURL = 'http://api.betterbizscore.com'
 
 export const signup = createAsyncThunk(
    'auth/signup',

@@ -60,7 +60,7 @@ const Result = ({ isOpen, handleClose, selectedRow }) => {
         };
 
         const response = await axios.get(
-          `http://localhost:8000/api/answers/${userId}?last=${true}`,
+          `http://api.betterbizscore.com/api/answers/${userId}?last=${true}`,
           config
         );
 
@@ -81,7 +81,7 @@ const Result = ({ isOpen, handleClose, selectedRow }) => {
     };
 
     if (!token && !user?._id) {
-      window.location.href = "http://localhost:3000/login";
+      window.location.href = "http://betterbizscore.com/login";
     } else {
       getAnswer();
     }
@@ -95,14 +95,14 @@ const Result = ({ isOpen, handleClose, selectedRow }) => {
             <img
               src={logo}
               className="result__card--logo"
-              alt="Better Biz Score Logo"
+              alt="BetterBiz Score Logo"
             />
           </Link>
         </div>
         <div className="bz-result__content">
           <img
             src={getImageBasedOnScore(answer?.scoredPoints)}
-            alt="Better Biz Score Wheel"
+            alt="BetterBiz Score Wheel"
             className="bz-result__cover"
             style={{ width: "100%" }} // Add this line
           />
@@ -113,7 +113,7 @@ const Result = ({ isOpen, handleClose, selectedRow }) => {
           <div className="result__card">
             <div className="result__card--content">
               <h6 className="result__card--score">
-                Better Biz Score: {answer.scoredPoints}
+                BetterBiz Score: {answer.scoredPoints}
               </h6>
               <Button
                 variant="contained"
@@ -238,7 +238,7 @@ const Result = ({ isOpen, handleClose, selectedRow }) => {
             marginBottom: "40px",
           }}
         >
-          <Link to="http://localhost:3000" target="_blank">
+          <Link to="http://admin.betterbizscore.com" target="_blank">
             <button
               style={{
                 color: "white",

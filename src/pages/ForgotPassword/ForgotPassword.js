@@ -4,7 +4,7 @@ import axios from 'axios'
 
 import { useForm } from 'react-hook-form'
 
-const baseURL = 'http://localhost:8000'
+const baseURL = 'http://api.betterbizscore.com'
 
 const ForgotPassword = () => {
   const {

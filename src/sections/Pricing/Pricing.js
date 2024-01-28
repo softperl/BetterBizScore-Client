@@ -30,7 +30,7 @@ const Pricing = function () {
         setLookUpKey(lookup_key);
         setLoading(true);
 
-        const response = await axios.post('http://localhost:8000/api/subscriptions/create-checkout-session', {
+        const response = await axios.post('http://api.betterbizscore.com/api/subscriptions/create-checkout-session', {
           lookup_key
         }, {
           headers: {
@@ -62,7 +62,7 @@ const Pricing = function () {
     const getCurrentSubscription = async () => {
       try {
         const industryId = localStorage.getItem('selected_industry_id');
-        const response = await axios.get(industryId ? `http://localhost:8000/api/users/subscription?industryId=${industryId}` : 'http://localhost:8000/api/users/subscription', {
+        const response = await axios.get(industryId ? `http://api.betterbizscore.com/api/users/subscription?industryId=${industryId}` : 'http://api.betterbizscore.com/api/users/subscription', {
           headers: {
             Authorization: `Bearer ${userToken}`,
             "Content-Type": 'application/json'
@@ -72,7 +72,7 @@ const Pricing = function () {
         if (response.data?.data?.alreadySubscribed && industryId) {
           console.log({alreadySubscribed: response.data?.data?.alreadySubscribed})
           localStorage.removeItem('selected_industry_id')
-          window.location.href = 'http://localhost:3000';
+          window.location.href = 'http://betterbizscore.com';
         } else {
           setSubscription(response.data?.data?.subscription)
         }
@@ -88,7 +88,7 @@ const Pricing = function () {
   React.useEffect(() => {
     const getPackages = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/packages', {
+        const response = await axios.get('http://api.betterbizscore.com/api/packages', {
           headers: {
             "Content-Type": 'application/json'
           }
@@ -102,46 +102,46 @@ const Pricing = function () {
     getPackages()
   }, [])
 
-  return (
-    <section className='bz-home__content plans'>
-      <div className="bz-home__heading">
-        <h2 className="bz-home__fluid">Get Started by Purchasing One of Our Plans</h2>
-        <p>
-          Until now more than 200+ companies purchased our plans
-        </p>
-      </div>
+  // return (
+  //   <section className='bz-home__content plans'>
+  //     <div className="bz-home__heading">
+  //       <h2 className="bz-home__fluid">Get Started by Purchasing One of Our Plans</h2>
+  //       <p>
+  //         Until now more than 200+ companies purchased our plans
+  //       </p>
+  //     </div>
 
-      <div className='plan'>
-        {
-          packages.length && packages.map((pack) => (
-            <span key={pack._id} className={`plan__card ${pack.lookupKey === subscription?.lookupKey ? 'plan__card--active' : ""}`}>
-              <input type="hidden" name="lookup_key" value={pack.lookupKey} />
-              <div className='plan__price-box'>
-                <p className='plan__price'>${pack.price} <span>per month</span></p>
-                <h3>{pack.name}</h3>
-                <p className='plan__description'>{pack.description}</p>
-                <hr />
-              </div>
-              <ul className='plan__features'>
-                {pack.features?.map((feature, i) => (
-                  <li key={i} className='plan__feature'><ArrowCircleRight /> {feature}</li>
-                ))}
-              </ul>
-              <button className='plan__cta' disabled={loading} onClick={(e) => {
-                e.preventDefault();
-                handleSubmit(pack.lookupKey);
-              }}>
-                {
-                  (loading && lookup_key === pack.lookupKey) ? 'Processing...'
-                    : subscription?.lookupKey === pack.lookupKey ? 'Upgrade Current plan'
-                      : 'Get Started'} <ChevronRight />
-              </button>
-            </span>
-          ))
-        }
-      </div>
-    </section>
-  )
+  //     <div className='plan'>
+  //       {
+  //         packages.length && packages.map((pack) => (
+  //           <span key={pack._id} className={`plan__card ${pack.lookupKey === subscription?.lookupKey ? 'plan__card--active' : ""}`}>
+  //             <input type="hidden" name="lookup_key" value={pack.lookupKey} />
+  //             <div className='plan__price-box'>
+  //               <p className='plan__price'>${pack.price} <span>per month</span></p>
+  //               <h3>{pack.name}</h3>
+  //               <p className='plan__description'>{pack.description}</p>
+  //               <hr />
+  //             </div>
+  //             <ul className='plan__features'>
+  //               {pack.features?.map((feature, i) => (
+  //                 <li key={i} className='plan__feature'><ArrowCircleRight /> {feature}</li>
+  //               ))}
+  //             </ul>
+  //             <button className='plan__cta' disabled={loading} onClick={(e) => {
+  //               e.preventDefault();
+  //               handleSubmit(pack.lookupKey);
+  //             }}>
+  //               {
+  //                 (loading && lookup_key === pack.lookupKey) ? 'Processing...'
+  //                   : subscription?.lookupKey === pack.lookupKey ? 'Upgrade Current plan'
+  //                     : 'Get Started'} <ChevronRight />
+  //             </button>
+  //           </span>
+  //         ))
+  //       }
+  //     </div>
+  //   </section>
+  // )
 }
 
 export default Pricing

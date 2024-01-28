@@ -66,6 +66,15 @@ const Navbar = () => {
           <li className="nav__item">
             <NavLink to="/multipageForm">Get Started Free</NavLink>
           </li>
+          <li className="nav__item">
+            <NavLink
+              to="http://admin.betterbizscore.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Dashboard
+            </NavLink>
+          </li>
           {success ? (
             <button className="nav__item bz-home__cta" onClick={handleLogout}>
               Logout

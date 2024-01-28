@@ -8,7 +8,7 @@ const WhyUs = function () {
    return (
       <section className='bz-home__content features'>
          <div className="bz-home__heading">
-            <h2 className="bz-home__fluid">Why Better Biz Score</h2>
+            <h2 className="bz-home__fluid">Why BetterBiz Score</h2>
             <p>
                Until now we have worked with 200+ clients. Here is what our clients say about us
             </p>
